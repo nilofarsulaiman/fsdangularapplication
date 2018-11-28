@@ -1,0 +1,30 @@
+<div id="projects">
+	<span class="h2 text-primary">{{title}}</span>
+	<button class="btn btn-info float-right" (click)="goBack()">GoBack</button>
+	<div id="form">
+		<fieldset>
+			<div class="form-group">
+			<label for="priority">Priority:</label>
+			<input type="range"  min="0" max="10" class="form-control" [(ngModel)]="projects.priority" id="priority" placeholder="Priority">
+			</div>
+			<div class="form-group">
+							<label for="name">Project:</label>
+							<input type="text" class="form-control" [(ngModel)]="projects.project" id="project" placeholder="Project">
+						</div>
+						<div class="form-group">
+							<label for="startdate">Start Date:</label>
+							<input type="text" class="form-control" [(ngModel)]="projects.startDate" id="startdate" placeholder="Start Date">
+						</div>
+						<div class="form-group">
+							<label for="enddate">End Date</label>
+							<input type="text" class="form-control" [(ngModel)]="projects.endDate" id="enddate" placeholder="End Date">
+						</div>
+						<td><a><button class="btn btn-info btn-sm" (click)="editProject()" >Update</button></a></td>
+						<td><a><button class="btn btn-info btn-sm" (click)="resetForm(projects)" >Reset</button></a></td>
+		</fieldset>
+	</div>
+</div>
+
+
+
+<app-alerts></app-alerts>

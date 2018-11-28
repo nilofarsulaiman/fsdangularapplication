@@ -1,0 +1,49 @@
+<div id="user">
+	<span class="h2 text-primary">{{title}}</span>
+	<div id="form">
+		<fieldset>
+			<div class="form-group">
+				<label for="firstName">First Name</label>
+				<input type="text" class="form-control" [(ngModel)]="user.firstName" id="firstName" placeholder="FirstName">
+			</div>
+			<div class="form-group">
+				<label for="lastName">Last Name</label>
+				<input type="text" class="form-control" [(ngModel)]="user.lastName" id="lastName" placeholder="LastName">
+			</div>
+			<div class="form-group">
+				<label for="employeeId">Employee Id</label>
+				<input type="text" class="form-control" [(ngModel)]="user.employeeId" id="employeeId" placeholder="EmployeeId">
+			</div>
+
+			<td>
+				<a>
+					<button class="btn btn-info btn-sm" (click)="addUser()"> Add</button>
+				</a>
+			</td>
+			<td>
+				<a>
+					<button class="btn btn-info btn-sm" (click)="resetForm(user)"> Reset</button>
+				</a>
+			</td>
+		</fieldset>
+	</div>
+</div>
+
+<div id="users">
+	<div class="row table-responsive">
+		<table class="table table-hover table-striped">
+			<tr *ngFor="let user of users; let id = index;">
+				<td contenteditable="true" (keyup)="changeValue(id, 'firstName', $event)" (blur)="editUser(id, 'firstName', $event)">{{user.firstName}} </td>
+				<td contenteditable="true" (keyup)="changeValue(id, 'lastName', $event)" (blur)="editUser(id, 'lastName', $event)">{{user.lastName}}</td>
+				<td contenteditable="true" (keyup)="changeValue(id, 'employeeId', $event)" (blur)="editUser(id, 'employeeId', $event)">{{user.employeeId}}</td>
+			<td><a routerLink="/user/{{user.userId}}"><button class="btn btn-info btn-sm"> Edit</button></a></td>
+				<td>
+					<button class="btn btn-danger btn-sm" (click)="deleteUser(user.userId)">Delete</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+
+<app-alerts></app-alerts>

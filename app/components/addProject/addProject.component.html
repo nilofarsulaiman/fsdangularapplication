@@ -1,0 +1,70 @@
+
+<div id="projects">
+	
+	<span class="h2 text-primary">{{title}}</span>
+	
+		<div id="form">
+			<fieldset>
+				<div class="form-group">
+					<label for="name">Project:</label>
+					<input type="text" class="form-control" required [(ngModel)]="projects.project" id="project" placeholder="Project">
+				</div>
+				<div class="form-group">
+					<label for="priority">Priority:</label>
+					<input type="range"  min="0" max="10" class="form-control"  required [(ngModel)]="projects.priority" id="priority" placeholder="Priority">
+				</div>
+				<div class="form-group">
+					<label for="startdate">Start Date:</label>
+					<input type="text" class="form-control"  required [(ngModel)]="projects.startDate" id="startdate" placeholder="Start Date">
+				</div>
+				<div class="form-group">
+					<label for="enddate">End Date:</label>
+					<input type="text" class="form-control" [(ngModel)]="projects.endDate" id="enddate" placeholder="End Date">
+				</div>
+				<td><input type="text"  placeholder="Search for Manager Name" required [(ngModel)]="managerName" >  </td>
+				<td><button class="btn btn-danger btn-sm" (click)="filterManager()">Search</button></td>
+				<br>
+				<td><a><button class="btn btn-info btn-sm"  (click)="addProject()"> Add Project</button></a></td>	
+				<td><a><button class="btn btn-info btn-sm" (click)="resetForm(projects)" > Reset</button></a></td>
+				<br>
+			</fieldset>
+		</div>	
+</div>
+
+<td><input type="text"  placeholder="Search for Project Name" [(ngModel)]="projectName" >  </td>
+<br>
+<td><button class="btn btn-danger btn-sm" (click)="filterProject()">Search</button></td>
+<td><button class="btn btn-danger btn-sm" (click)="ngOnChanges()">Reset</button></td>
+<br>
+<td>Sort by :</td>
+<td><button class="btn btn-danger btn-sm" (click)="sortByStartDate()">Start Date</button></td>
+<td><button class="btn btn-danger btn-sm" (click)="sortByEndDate()">End Date</button></td>
+<td><button class="btn btn-danger btn-sm" (click)="sortByPriority()">Priority</button></td>
+<td><button class="btn btn-danger btn-sm" (click)="filterCompletedTask()">Completed</button> <br> </td>
+<div id="projectsList">
+			<table class="table table-hover table-striped" >
+				<tr class="bg-dark text-white">
+					<th>Project</th>
+					<th>No of Tasks</th>
+					<th>Priority</th>
+					<th>Start</th>
+					<th>End</th>
+					<th></th>
+				</tr>
+				<tr *ngFor="let projects of projectsList; let i = index;">
+					<td>{{projects.project}}</td>
+					<td>{{projects.noOfTask}}</td>
+					<td>{{projects.priority}}</td>
+					<td>{{projects.startDate}}</td>
+					<td>{{projects.endDate}}</td>
+					<td><a routerLink="/projects/{{projects.projectId}}"><button class="btn btn-info btn-sm"> Update</button></a></td>
+					<td><button class="btn btn-danger btn-sm" (click)="deleteProject(projects.projectId)">Suspend</button></td>
+				</tr>
+			</table>
+</div>
+
+
+
+
+
+<app-alerts></app-alerts>

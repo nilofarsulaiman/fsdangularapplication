@@ -1,0 +1,36 @@
+<div id="task">
+	<span class="h2 text-primary">{{title}}</span>
+	<button class="btn btn-info float-right" (click)="goBack()">GoBack</button>
+
+	<div id="form">
+		<fieldset>
+			<div class="form-group">
+				<label for="name">Task:</label>
+				<input type="text" class="form-control" [(ngModel)]="task.task" id="name" placeholder="Task">
+			</div>
+			<div class="form-group">
+				<label for="priority">Priority</label>
+				<input type="range"  min="0" max="10" class="form-control" [(ngModel)]="task.priority" id="priority" placeholder="Priority">
+			</div>
+			<div class="form-group">
+				<label for="name">Parent Task:</label>
+				<input type="text" class="form-control" [(ngModel)]="task.parentTask.parentTask" id="parentTask" placeholder="Parent Task">
+			</div>
+			<div class="form-group">
+				<label for="startdate">Start Date</label>
+				<input type="text" class="form-control" [(ngModel)]="task.startDate" id="startdate" placeholder="Start Date">
+			</div>
+			<div class="form-group">
+				<label for="enddate">End Date</label>
+				<input type="text" class="form-control" [(ngModel)]="task.endDate" id="enddate" placeholder="End Date">
+			</div>
+			<td><a><button class="btn btn-info btn-sm"  (click)="editTask()">Update</button></a></td>
+			<td><a><button class="btn btn-info btn-sm" (click)="goBack()" >Cancel</button></a></td>
+		</fieldset>
+	</div>
+</div>
+
+
+
+
+<app-alerts></app-alerts>

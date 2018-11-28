@@ -1,0 +1,38 @@
+
+
+
+<td><input type="text"  placeholder="Search for Project Name" [(ngModel)]="projectName" >  </td>
+<br>
+<td><button class="btn btn-danger btn-sm" (click)="filterProject()">Search</button></td>
+<td><button class="btn btn-danger btn-sm" (click)="ngOnInit()">Reset</button></td>
+<br>
+<td>Sort by :</td>
+<td><button class="btn btn-danger btn-sm" (click)="sortByStartDate()">Start Date</button></td>
+<td><button class="btn btn-danger btn-sm" (click)="sortByEndDate()">End Date</button></td>
+<td><button class="btn btn-danger btn-sm" (click)="sortByPriority()">Priority</button></td>
+<td><button class="btn btn-danger btn-sm" (click)="filterCompletedTask()">Completed</button> <br> </td>
+<div id="tasks">
+	<div class="row table-responsive">
+		<table class="table table-hover table-striped">
+			<tr class="bg-dark text-white">
+				<th>S.No</th>
+				<th>Task</th>
+				<th>Parent</th>
+				<th>Priority</th>
+				<th>Start</th>
+				<th>End</th>
+				<th></th>
+			</tr>
+			<tr *ngFor="let task of tasks; let i = index;">
+				<td>{{i+1}}</td>
+				<td>{{task.task}}</td>
+				<td>{{task.parentTask.parentTask}}</td>
+				<td>{{task.priority}}</td>
+				<td>{{task.startDate}}</td>
+				<td>{{task.endDate}}</td>
+				<td><a routerLink="/task/{{task.taskId}}"><button class="btn btn-info btn-sm"> Edit</button></a></td>
+				<td><button class="btn btn-danger btn-sm" (click)="deleteTask(task.taskId)">End Task</button></td>
+			</tr>
+		</table>
+	</div>
+</div>
