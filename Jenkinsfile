@@ -20,10 +20,22 @@ node {
         checkout scm
     }
 
- 
+  
+      stage('Test') {
+          echo "Test in Progress"
+          
+      }
+
+      
       stage('Build') {
-         // ng build
-         
+         echo "ng build"
       }
     }
-   
+    
+    stage('Archive') {
+       
+    }
+
+    stage('Deploy') {
+          echo "deploying "
+    }
