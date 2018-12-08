@@ -20,25 +20,10 @@ node {
         checkout scm
     }
 
-  
-      stage('Test') {
-          
-      }
-
-      stage('Lint') {
-        
-      }
-        
+ 
       stage('Build') {
+          ng build
          
       }
     }
-    //end docker
-
-    stage('Archive') {
-       
-    }
-
-    stage('Deploy') {
-      
-    }
+   
