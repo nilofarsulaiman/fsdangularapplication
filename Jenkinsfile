@@ -30,16 +30,15 @@ node {
       }
         
       stage('Build') {
-          sh 'ng build --prod --aot --sm --progress=false'
+         
       }
     }
     //end docker
 
     stage('Archive') {
-        sh 'tar -cvzf dist.tar.gz --strip-components=1 dist'
-        archive 'dist.tar.gz'
+       
     }
 
     stage('Deploy') {
-        echo "Deploying..."
+      
     }
