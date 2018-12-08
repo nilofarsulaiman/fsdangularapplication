@@ -22,7 +22,7 @@ node {
 
  
       stage('Build') {
-          ng build
+         // ng build
          
       }
     }
